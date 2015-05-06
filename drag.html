@@ -28,7 +28,7 @@ body{
 
 /* Background patterns from subtlepatterns.com */
 .dragndrop header{
-  width:100%; background: #d894ff url('/img/backgrounds/something.png');padding:0 1em 0;margin-top:1em;margin-bottom:4em;
+  width:100%; background: #f59ff5 url('/img/backgrounds/something.png');padding:0 1em 0;margin-top:1em;margin-bottom:4em;
 }
 .dragndrop header .view a{
   background-color:ghostwhite;background-color:rgba(200, 200, 200, 0.9);
@@ -55,7 +55,7 @@ body{
   padding:1em;
 }
 .tier{
-  min-height:5.5em;border:thin dashed #333;border-radius:0.4em;margin-bottom:1em;
+  min-height:6em;border:thin dashed #333;border-radius:0.4em;margin-bottom:3em;
 }
 .base-tier{
   text-align:center;
@@ -67,18 +67,21 @@ body{
   margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
 }
 .dragndrop .info-area{
-  color:#363636; background: ghostwhite url('/img/backgrounds/paisley.png'); margin-top:1.5em;
+  color:#363636; background: ghostwhite url('/img/backgrounds/paisley.png'); margin-top:3em;
 }
 .dragndrop footer{
   color:ghostwhite;
   background: #333 url('/img/backgrounds/congruent_outline.png');
-  min-height:5em;width:100%;margin-top:2em;
+  min-height:5em;width:100%;margin-top:2em;padding-top:1.5em;padding-bottom:1.5em;
 }
 .dragndrop footer h3{
   color:ghostwhite;
 }
 .hub-area button{
   width:5em;height:5em;margin-right:1em;margin-bottom:1em;
+}
+ul.special-info{
+  display:inline-block;margin-left:auto;margin-right:auto;
 }
 </style>
   </head>
@@ -112,10 +115,13 @@ body{
             <div class='network-inner'>
               <h1 class='titling'>Main Content Area</h1>
               <div class='tier tier-3' title='Tier 3'>
+                <small>Tier 3</small>
               </div>
               <div class='tier tier-2' title='Tier 2'>
+                <small>Tier 2</small>
               </div>
               <div class='tier tier-1' title='Tier 1'>
+                <small>Tier 1</small>
               </div>
               <div class='base-tier'>
                 <button class='target base'>Target<br>[example.com/somepage]</button>
@@ -123,18 +129,20 @@ body{
             </div><!-- end of .network-inner -->
           </section>
           <section class='info-area'>
-            <h3 class='titling'>Info Area</h3>
-            <ul>
-              <li>Url: wordpress.com/somewhere</li>
-              <li>Indexing: details</li>
-              <li>Profile: details</li>
-              <li>More: etc</li>
-            </ul>
+            <h3 class='titling'>Selected Element Info Area</h3>
+            <div class='container'>
+              <ul class='list-group special-info'>
+                <li>Url: wordpress.com/somewhere</li>
+                <li>Indexing: details</li>
+                <li>Profile: details</li>
+                <li>More: etc</li>
+              </ul>
+            </div>
           </section>
         </div><!-- end of .core-container -->
       </section><!-- End of .core -->
       <footer>
-        <h3 class='titling'>Standard Footer with viewed item detail info here</h3>
+        <h3 class='titling'>Standard Footer</h3>
       </footer>
     </div>
     <script src="js/dragndrop.js"></script>
