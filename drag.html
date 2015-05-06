@@ -12,49 +12,115 @@
     <![endif]-->
 <style>
 /* This will be moved to it's own css file shortly */
-.dragndrop aside{
-  width:30%;display:inline-block;
-  background-color:gray; border:thick solid black; border-radius:0.5em;
+.wrapper{
+  min-width:890px;max-width:1200px;
 }
 
-.dragndrop .core{
-  width:69%;display:inline-block;
-  background-color:teal;border-radius:0.5em;
-}
-
+/* Background patterns from subtlepatterns.com */
 .dragndrop header{
-  width:100%; background-color:lightblue; border-radius:0.5em; padding:0 1em 0;
+  width:100%; background: #d894ff url('/img/backgrounds/something.png');border-radius:0.5em; padding:0 1em 0;
 }
 .dragndrop header h1{
   margin:0;
+}
+.dragndrop .core{
+  padding:0 2% 0;clear:both;
+}
+.dragndrop .core-container{
+  width:100%;vertical-align:top;
+}
+.dragndrop aside{
+  display:inline-block;width:30%;height:100%;
+  background:gray url('/img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
+}
+.dragndrop .network{
+  display:inline-block;width:69%;
+  background: teal url('/img/backgrounds/eight_horns.png');border-radius:0.3em;margin-left:1%;
+}
+.dragndrop .aside-inner, .dragndrop .network-inner{
+  padding:1em;
+}
+.tier{
+  min-height:5.5em;border:thin dashed #333;border-radius:0.4em;margin-bottom:1em;
+}
+.base-tier{
+  text-align:center;
+}
+.base-tier .target{
+  min-height:5.5em;min-width:12em;text-align:center;
+}
+.titling{
+  margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
+}
+.dragndrop .info-area{
+  color:#363636; background: ghostwhite url('/img/backgrounds/paisley.png'); margin-top:1.5em;
+}
+.dragndrop footer{
+  color:ghostwhite;
+  background: #333 url('/img/backgrounds/congruent_outline.png');
+  min-height:5em;width:100%;margin-top:2em;
+}
+.dragndrop footer h3{
+  color:ghostwhite;
+}
+.hub-area button{
+  width:5em;height:5em;margin-right:1em;margin-bottom:1em;
 }
 </style>
   </head>
   <body>
     <div class="wrapper dragndrop">
       <header>
-        <h1>Dragndrop</h1>
+        <h1 class='titling'>Dragndrop Prototype</h1>
         <p class="view"><a href="https://github.com/tchalvak/dragndrop">View the code on GitHub <small>tchalvak/dragndrop</small></a></p>
 
       </header>
-      <aside>
-        <h2>Hubs</h2>
-        <div class='hub-area'>
-        </div>
-      </aside>
       <section class='core'>
-        <h1>Main Content Area</h1>
-        <div class='tier tier-3'>
-        </div>
-        <div class='tier tier-2'>
-        </div>
-        <div class='tier tier-1'>
-        </div>
-        <div class='base'>
-        </div>
-      </section>
+        <div class='core-container'>
+          <aside>
+            <div class='aside-inner'>
+              <h2 class='titling'>Hubs</h2>
+              <div class='hub-area'>
+                <button>hub 1</button>
+                <button>hub 2</button>
+                <button>hub 3</button>
+                <button>hub 4</button>
+                <button>hub 5</button>
+                <button>hub 6</button>
+                <button>hub 7</button>
+                <button>hub 8</button>
+                <button>hub 9</button>
+                <button>hub 10</button>
+              </div>
+            </div>
+          </aside><!-- No spaces here please
+          --><section class='network'>
+            <div class='network-inner'>
+              <h1 class='titling'>Main Content Area</h1>
+              <div class='tier tier-3' title='Tier 3'>
+              </div>
+              <div class='tier tier-2' title='Tier 2'>
+              </div>
+              <div class='tier tier-1' title='Tier 1'>
+              </div>
+              <div class='base-tier'>
+                <button class='target base'>Target<br>[example.com/somepage]</button>
+              </div>
+            </div><!-- end of .network-inner -->
+          </section>
+          <section class='info-area'>
+            <h3 class='titling'>Info Area</h3>
+            <ul>
+              <li>Url: wordpress.com/somwhere</li>
+              <li>Indexing: details</li>
+              <li>Profile: details</li>
+              <li>More: etc</li>
+            </ul>
+          </section>
+        </div><!-- end of .core-container -->
+      </section><!-- End of .core -->
       <footer>
-        <h3>Standard Footer with viewed item detail info here</h3>
+        <h3 class='titling'>Standard Footer with viewed item detail info here</h3>
       </footer>
     </div>
     <script src="js/dragndrop.js"></script>
