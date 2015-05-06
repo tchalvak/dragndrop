@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dragndrop by tchalvak</title>
+
+    <link rel="stylesheet" href="css/dragstyles.css">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"> -->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<style>
+/* This will be moved to it's own css file shortly */
+.dragndrop aside{
+  width:30%;display:inline-block;
+  background-color:gray; border:thick solid black; border-radius:0.5em;
+}
+
+.dragndrop .core{
+  width:69%;display:inline-block;
+  background-color:teal;border-radius:0.5em;
+}
+
+.dragndrop header{
+  width:100%; background-color:lightblue; border-radius:0.5em; padding:0 1em 0;
+}
+.dragndrop header h1{
+  margin:0;
+}
+</style>
+  </head>
+  <body>
+    <div class="wrapper dragndrop">
+      <header>
+        <h1>Dragndrop</h1>
+        <p class="view"><a href="https://github.com/tchalvak/dragndrop">View the code on GitHub <small>tchalvak/dragndrop</small></a></p>
+
+      </header>
+      <aside>
+        <h2>Hubs</h2>
+        <div class='hub-area'>
+        </div>
+      </aside>
+      <section class='core'>
+        <h1>Main Content Area</h1>
+        <div class='tier tier-3'>
+        </div>
+        <div class='tier tier-2'>
+        </div>
+        <div class='tier tier-1'>
+        </div>
+        <div class='base'>
+        </div>
+      </section>
+      <footer>
+        <h3>Standard Footer with viewed item detail info here</h3>
+      </footer>
+    </div>
+    <script src="js/dragndrop.js"></script>
+    <!-- <script src="js/scale.fix.js"></script> -->
+
+  </body>
+</html>
