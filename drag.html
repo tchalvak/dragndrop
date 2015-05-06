@@ -2,23 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Dragndrop by tchalvak</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dragndrop Prototype</title>
+    <link rel="icon" href="/favicon.ico">
 
-    <link rel="stylesheet" href="css/dragstyles.css">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"> -->
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/dragstyles.css"> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+body{
+  background: url('/img/backgrounds/exclusive_paper.png');
+}
 /* This will be moved to it's own css file shortly */
 .wrapper{
-  min-width:890px;max-width:1200px;
+  min-width:890px;max-width:1200px;margin-left:auto;margin-right:auto;
 }
 
 /* Background patterns from subtlepatterns.com */
 .dragndrop header{
-  width:100%; background: #d894ff url('/img/backgrounds/something.png');border-radius:0.5em; padding:0 1em 0;
+  width:100%; background: #d894ff url('/img/backgrounds/something.png');padding:0 1em 0;margin-top:1em;margin-bottom:4em;
+}
+.dragndrop header .view a{
+  background-color:ghostwhite;background-color:rgba(200, 200, 200, 0.9);
+  display:inline-block;padding:0 1em;
 }
 .dragndrop header h1{
   margin:0;
@@ -30,12 +44,12 @@
   width:100%;vertical-align:top;
 }
 .dragndrop aside{
-  display:inline-block;width:30%;height:100%;
+  display:inline-block;width:30%;
   background:gray url('/img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
 }
 .dragndrop .network{
   display:inline-block;width:69%;
-  background: teal url('/img/backgrounds/eight_horns.png');border-radius:0.3em;margin-left:1%;
+  background-color:ghostwhite;border-radius:0.3em;margin-left:1%;
 }
 .dragndrop .aside-inner, .dragndrop .network-inner{
   padding:1em;
@@ -111,7 +125,7 @@
           <section class='info-area'>
             <h3 class='titling'>Info Area</h3>
             <ul>
-              <li>Url: wordpress.com/somwhere</li>
+              <li>Url: wordpress.com/somewhere</li>
               <li>Indexing: details</li>
               <li>Profile: details</li>
               <li>More: etc</li>
@@ -125,6 +139,9 @@
     </div>
     <script src="js/dragndrop.js"></script>
     <!-- <script src="js/scale.fix.js"></script> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
   </body>
 </html>
