@@ -70,6 +70,12 @@ body{
 .titling{
   margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
 }
+.hub-area button, .tier button{
+  width:5em;height:5em;margin-right:1em;margin-bottom:1em;
+}
+ul.special-info{
+  display:inline-block;margin-left:auto;margin-right:auto;
+}
 .dragndrop .info-area{
   color:#363636; background: ghostwhite url('img/backgrounds/paisley.png'); margin-top:3em;
 }
@@ -80,12 +86,6 @@ body{
 }
 .dragndrop footer h3{
   color:ghostwhite;
-}
-.hub-area button, .tier button{
-  width:5em;height:5em;margin-right:1em;margin-bottom:1em;
-}
-ul.special-info{
-  display:inline-block;margin-left:auto;margin-right:auto;
 }
 </style>
   </head>
@@ -129,12 +129,14 @@ ul.special-info{
               </div>
               <div class='base-tier'>
                 <button class='target base'>Target<br>[example.com/somepage]</button>
+                <input id='save-hubs' type='submit' value='Save' />
               </div>
             </div><!-- end of .network-inner -->
           </section>
           <section class='info-area'>
             <div class='container'>
-              <h3>Selected Element Info Area</h3>
+              <h3 class='titling'>Info Area</h3>
+              <h4>Selected Element Info</h4>
               <ul class='list-group special-info'>
                 <li>Url: wordpress.com/somewhere</li>
                 <li>Indexing: details</li>
