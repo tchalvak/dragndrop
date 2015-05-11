@@ -56,10 +56,13 @@ body{
   padding:1em;
 }
 .tier{
-  min-height:8em;border:thin dashed lightgray;border-radius:0.4em;margin-bottom:3em;padding:1em 0.3em 1em;
+  min-height:8em;border-radius:0.4em;margin-bottom:3em;padding:1em 0.3em 1em;
 }
-.tier small{
-  color:lightgray;vertical-align:middle;line-height:6em;
+.tier[droppable]{
+  border:thin dashed #333;
+}
+.network-inner small{
+  color:lightgray;
 }
 .base-tier{
   text-align:center;
@@ -113,19 +116,34 @@ ul.special-info{
                 <button id='hub-9' draggable='true'>hub 9</button>
                 <button id='hub-10' draggable='true'>hub 10</button>
               </div>
+              <div>
+                <h2 class='titling'>Articles</h2>
+                <div class='articles-area'>
+                  <button id='article-1' draggable='true'>article 1</button>
+                  <button id='article-2' draggable='true'>article 2</button>
+                  <button id='article-3' draggable='true'>article 3</button>
+                  <button id='article-4' draggable='true'>article 4</button>
+                  <button id='article-5' draggable='true'>article 5</button>
+                  <button id='article-6' draggable='true'>article 6</button>
+                </div>
+              </div>
+
             </div>
           </aside><!-- No spaces here please
           --><section class='network'>
             <div class='network-inner'>
               <h1 class='titling'>Main Content Area</h1>
+              <small>Tier 3</small>
               <div class='tier tier-3' title='Tier 3'>
-                <small>Tier 3</small>
+                
               </div>
+              <small>Tier 2</small>
               <div class='tier tier-2' title='Tier 2'>
-                <small>Tier 2</small>
+                
               </div>
-              <div class='tier tier-1' title='Tier 1'>
-                <small>Tier 1</small>
+              <small>Tier 1</small>
+              <div class='tier tier-1' droppable title='Tier 1'>
+                
               </div>
               <div class='base-tier'>
                 <button class='target base'>Target<br>[example.com/somepage]</button>
@@ -154,6 +172,11 @@ ul.special-info{
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+    // turn on over/enter/leave detection, decreases performance
+    //  var iosDragDropShim = { enableEnterLeave: true }
+    </script>
+    <script src="js/vendor/ios-drag-drop.js"></script>
 
     <!-- Non-third-party js here -->
     <script src="js/dragndrop.js"></script>

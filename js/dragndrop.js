@@ -15,8 +15,9 @@ function drop(ev) {
 // Take the hubs in each tier and capture their data and save them.
 function saveHubs(){
 	// Eventually, this will push to the REST api, but for now, we'll just output the data.
-	data = {};
-	$('.tier').each(function(){
+	data = [];
+	$('.tier').children('button').each(function(button){
+		data.push({'hub-id':button.id, 'parent':button.parent, 'tier-id':$(button).parent().id});
 	});
 
 	return data;
@@ -28,10 +29,29 @@ function renderSaveData(data){
 
 }
 
+// Only display dashed border
+function reActivateTiers(){
+	// Get full tiers
+	var $full = $('.tier').not(':empty');
+	// Get last empty tier
+	var $lastEmpty = $('.tier').not(':empty').last();
+	// Reactivate those tiers.
+	var found = $($full, $lastEmpty).attr('droppable', 'droppable').css({'background':'lightgray'});
+	console.log('reattributed', found);
+}
+
+// TODO: Have save button display the current layout of hubs in the info area.
+// TODO: Only allow lower tiers to be filled first.
+// TODO: Change display to allow higher drop tiers to contain multiple tier targets based on the areas below them.
+// TODO: Allow dropping of articles onto the target button and hubs onto the target button as a special case, which causes them to be displayed in tier 1.
+// TODO: Leave a drop target area in each subhub area
+// TODO: Allow hubs within tiers to be dragged to a new order.
+
+
 $(function(){
 	// Prevent default on drop targets
 	$(".tier").on("dragover",function(e){
-	e.preventDefault();
+		e.preventDefault();
 	});
 
 	// Once drag starts, set the data.
@@ -53,6 +73,10 @@ $(function(){
 		copyId++; // Increment the clone ids so they're unique.
 		console.log('clone:', clone, 'typeof clone:', typeof(clone));
 		e.target.appendChild(clone.get(0));
+
+		//setTimeout(function(){
+			reActivateTiers(); // Reborder-ify the tiers as appropriate
+		//}, 1*1000);
 	});
 
 
