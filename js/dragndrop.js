@@ -28,6 +28,8 @@ $(function(){
     // Get the id of the draggable element, must have an id
     var hubId=e.originalEvent.dataTransfer.getData("text");
     console.log('data', hubId, 'target', e.target);
-    e.target.appendChild(document.getElementById(hubId));
+    var clone = $('#'+hubId).clone().attr("id", hubId+'-copy');
+    console.log('clone:', clone, 'typeof clone:', typeof(clone));
+    e.target.appendChild(clone.get(0));
   });
 });
