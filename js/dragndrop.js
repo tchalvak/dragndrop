@@ -20,13 +20,14 @@ $(function(){
     e.preventDefault();
   });
   $(".hub-area button").on("dragstart",function(e){
+  	// Set the hubId for transferring.
     e.originalEvent.dataTransfer.setData("text",e.target.id);
   });
   $(".tier").on("drop",function(e){
     e.preventDefault();
     // Get the id of the draggable element, must have an id
-    var data=e.originalEvent.dataTransfer.getData("text");
-    console.log('data', data, 'target', e.target);
-    e.target.appendChild(document.getElementById(data));
+    var hubId=e.originalEvent.dataTransfer.getData("text");
+    console.log('data', hubId, 'target', e.target);
+    e.target.appendChild(document.getElementById(hubId));
   });
 });
