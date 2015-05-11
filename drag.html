@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dragndrop Prototype</title>
     <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -101,16 +102,16 @@ ul.special-info{
             <div class='aside-inner'>
               <h2 class='titling'>Hubs</h2>
               <div class='hub-area'>
-                <button>hub 1</button>
-                <button>hub 2</button>
-                <button>hub 3</button>
-                <button>hub 4</button>
-                <button>hub 5</button>
-                <button>hub 6</button>
-                <button>hub 7</button>
-                <button>hub 8</button>
-                <button>hub 9</button>
-                <button>hub 10</button>
+                <button id='hub-1' draggable='true'>hub 1</button>
+                <button id='hub-2' draggable='true'>hub 2</button>
+                <button id='hub-3' draggable='true'>hub 3</button>
+                <button id='hub-4' draggable='true'>hub 4</button>
+                <button id='hub-5' draggable='true'>hub 5</button>
+                <button id='hub-6' draggable='true'>hub 6</button>
+                <button id='hub-7' draggable='true'>hub 7</button>
+                <button id='hub-8' draggable='true'>hub 8</button>
+                <button id='hub-9' draggable='true'>hub 9</button>
+                <button id='hub-10' draggable='true'>hub 10</button>
               </div>
             </div>
           </aside><!-- No spaces here please
@@ -148,11 +149,13 @@ ul.special-info{
         <h3 class='titling'>Standard Footer</h3>
       </footer>
     </div>
-    <script src="js/dragndrop.js"></script>
-    <!-- <script src="js/scale.fix.js"></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Non-third-party js here -->
+    <script src="js/dragndrop.js"></script>
+    <!-- <script src="js/scale.fix.js"></script> -->
 
   </body>
 </html>
