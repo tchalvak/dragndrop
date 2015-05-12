@@ -90,6 +90,9 @@ ul.special-info{
 .dragndrop footer h3{
   color:ghostwhite;
 }
+#save-hubs{
+  float:right;min-height:3em;min-width:4em;
+}
 </style>
   </head>
   <body>
@@ -134,15 +137,15 @@ ul.special-info{
             <div class='network-inner'>
               <h1 class='titling'>Main Content Area</h1>
               <small>Tier 3</small>
-              <div class='tier tier-3' title='Tier 3'>
+              <div id='tier-3' class='tier tier-3' title='Tier 3'>
                 
               </div>
               <small>Tier 2</small>
-              <div class='tier tier-2' title='Tier 2'>
+              <div id='tier-2' class='tier tier-2' title='Tier 2'>
                 
               </div>
               <small>Tier 1</small>
-              <div class='tier tier-1' droppable title='Tier 1'>
+              <div id='tier-1' class='tier tier-1' droppable title='Tier 1'>
                 
               </div>
               <div class='base-tier'>
@@ -154,13 +157,15 @@ ul.special-info{
           <section class='info-area'>
             <div class='container'>
               <h3 class='titling'>Info Area</h3>
-              <h4>Selected Element Info</h4>
-              <ul class='list-group special-info'>
-                <li>Url: wordpress.com/somewhere</li>
-                <li>Indexing: details</li>
-                <li>Profile: details</li>
-                <li>More: etc</li>
-              </ul>
+              <div id='just-info'>
+                <h4>Selected Element Info</h4>
+                <ul class='list-group special-info'>
+                  <li>Url: wordpress.com/somewhere</li>
+                  <li>Indexing: details</li>
+                  <li>Profile: details</li>
+                  <li>More: etc</li>
+                </ul>
+              </div>
             </div>
           </section>
         </div><!-- end of .core-container -->

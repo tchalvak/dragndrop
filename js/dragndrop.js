@@ -1,23 +1,12 @@
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
-
 // Take the hubs in each tier and capture their data and save them.
 function saveHubs(){
 	// Eventually, this will push to the REST api, but for now, we'll just output the data.
 	data = [];
-	$('.tier').children('button').each(function(button){
-		data.push({'hub-id':button.id, 'parent':button.parent, 'tier-id':$(button).parent().id});
+	$('.tier').children('button').each(function(index, button){
+		var tier = $(button).closest('.tier').get(0);
+		var tierId = tier.id?tier.id: null;
+
+		data.push({'hubId':$(button).data('originalId'), 'parent':button.parent, 'tierId':tierId});
 	});
 
 	return data;
@@ -26,7 +15,16 @@ function saveHubs(){
 // A quick and dirty function to render the save data
 function renderSaveData(data){
 	// Just output the data as a list into the info area.
-
+	if(data && data.length){
+		var $list = $('<ul></ul>');
+		$(data).each(function(index, el){
+			console.log(el);
+			$list.append($('<li></li>').text('Hub id: ['+el.hubId+'] Tier id: ['+el.tierId+'] Parent-hub: ['+el.parent+']'));
+		});
+		$('#just-info').empty().append($list);
+	} else {
+		console.log('No save data to render.');
+	}
 }
 
 // Only display dashed border
@@ -68,19 +66,20 @@ $(function(){
 		// Get the id of the draggable element, must have an id
 		var hubId=e.originalEvent.dataTransfer.getData("text");
 		console.log('data', hubId, 'target', e.target);
+		var $hub = $('#'+hubId);
 		// Create a clone with new data, but referring to the original.
-		var clone = $('#'+hubId).clone().attr("id", hubId+'-copy-'+copyId).data('original-id', hubId);
+		var clone = $hub.clone().attr("id", hubId+'-copy-'+copyId).data('originalId', hubId);
 		copyId++; // Increment the clone ids so they're unique.
 		console.log('clone:', clone, 'typeof clone:', typeof(clone));
 		e.target.appendChild(clone.get(0));
 
 		//setTimeout(function(){
-			reActivateTiers(); // Reborder-ify the tiers as appropriate
+			reActivateTiers(); // Reactivate the tiers as appropriate
 		//}, 1*1000);
 	});
 
 
-	$('#save-hubs').hide().submit(function(e){
+	$('#save-hubs').on('submit, click', function(e){
 		e.preventDefault();
 		var data = saveHubs();
 		renderSaveData(data);
