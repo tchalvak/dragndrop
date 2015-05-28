@@ -58,10 +58,14 @@ $(function(){
 		e.originalEvent.dataTransfer.setData("text",e.target.id);
 	});
 
+	$('.article-area button').on('dragstart', function(e){
+		e.originalEvent.dataTransfer.setData("text",e.target.id);
+	});
+
 	var copyId = 1;
 
 	// On drop transfer the data, clone an element, and then place it in the new location.
-	$(".tier").on("drop",function(e){
+	$(".tier:not(button)").on("drop",function(e){
 		e.preventDefault();
 		// Get the id of the draggable element, must have an id
 		var hubId=e.originalEvent.dataTransfer.getData("text");
@@ -76,6 +80,10 @@ $(function(){
 		//setTimeout(function(){
 			reActivateTiers(); // Reactivate the tiers as appropriate
 		//}, 1*1000);
+	});
+
+	$('.tier button').on('drop', function(e){
+		e.preventDefault();
 	});
 
 
