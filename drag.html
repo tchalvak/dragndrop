@@ -44,12 +44,10 @@ body{
   width:100%;vertical-align:top;
 }
 .dragndrop aside{
-  display:inline-block;width:30%;
   background:gray url('img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
 }
 .dragndrop .network{
-  display:inline-block;width:69.5%;
-  background-color:ghostwhite;border-radius:0.3em;margin-left:0.5%;
+  background-color:ghostwhite;border-radius:0.3em;
 }
 .dragndrop .aside-inner{
   padding:0.4em;
@@ -127,7 +125,7 @@ right connector from last child*/
 
 .tree li a{
   border: 1px solid #ccc;
-  padding: 5px 10px;
+  padding: 30px 14px;
   text-decoration: none;
   color: #666;
   font-family: arial, verdana, tahoma;
@@ -229,46 +227,12 @@ ul.special-info{
 
       </header>
       <section class='core'>
-        <div class='core-container'>
-          <aside>
-            <div class='aside-inner'>
-              <div class='panel panel-default'>
-                <div class='panel-heading'>
-                  <h2 class='panel-title'>Hubs</h2>
-                </div>
-                <div class='hub-area panel-body'>
-                  <button id='hub-1' draggable='true'>hub 1</button>
-                  <button id='hub-2' draggable='true'>hub 2</button>
-                  <button id='hub-3' draggable='true'>hub 3</button>
-                  <button id='hub-4' draggable='true'>hub 4</button>
-                  <button id='hub-5' draggable='true'>hub 5</button>
-                  <button id='hub-6' draggable='true'>hub 6</button>
-                  <button id='hub-7' draggable='true'>hub 7</button>
-                  <button id='hub-8' draggable='true'>hub 8</button>
-                  <button id='hub-9' draggable='true'>hub 9</button>
-                  <button id='hub-10' draggable='true'>hub 10</button>
-                </div>
-              </div>
-              <div class='panel panel-default'>
-                <div class='panel-heading'>
-                  <h2 class='panel-title'>Articles</h2>
-                </div>
-                <div class='articles-area panel-body'>
-                  <button id='article-1' draggable='true'>article 1</button>
-                  <button id='article-2' draggable='true'>article 2</button>
-                  <button id='article-3' draggable='true'>article 3</button>
-                  <button id='article-4' draggable='true'>article 4</button>
-                  <button id='article-5' draggable='true'>article 5</button>
-                  <button id='article-6' draggable='true'>article 6</button>
-                </div>
-              </div>
-
-            </div>
-          </aside><!-- No spaces here please
-          --><section class='network'>
-            <div class='network-inner panel panel-default'>
+        <div class='core-container container-fluid'>
+          <div class='row'>
+          <section class='network col-md-9'>
+            <div class='network-inner  panel panel-default'>
               <div class='panel-heading'>
-                <h1 class='titling panel-title'>Syndication</h1>
+                <h1 class='titling panel-title'>Network</h1>
               </div>
               <div class='panel-body'>
                 <div class="tree">
@@ -330,7 +294,43 @@ ul.special-info{
               </div>
               -->
             </div><!-- end of .network-inner -->
-          </section>
+          </section><!-- end of .network -->
+          <aside class='col-md-3'>
+            <div class='aside-inner'>
+              <div class='panel panel-default'>
+                <div class='panel-heading'>
+                  <h2 class='panel-title'>Hubs</h2>
+                </div>
+                <div class='hub-area panel-body'>
+                  <button id='hub-1' draggable='true'>hub 1</button>
+                  <button id='hub-2' draggable='true'>hub 2</button>
+                  <button id='hub-3' draggable='true'>hub 3</button>
+                  <button id='hub-4' draggable='true'>hub 4</button>
+                  <button id='hub-5' draggable='true'>hub 5</button>
+                  <button id='hub-6' draggable='true'>hub 6</button>
+                  <button id='hub-7' draggable='true'>hub 7</button>
+                  <button id='hub-8' draggable='true'>hub 8</button>
+                  <button id='hub-9' draggable='true'>hub 9</button>
+                  <button id='hub-10' draggable='true'>hub 10</button>
+                </div>
+              </div>
+              <div class='panel panel-default'>
+                <div class='panel-heading'>
+                  <h2 class='panel-title'>Articles</h2>
+                </div>
+                <div class='articles-area panel-body'>
+                  <button id='article-1' draggable='true'>article 1</button>
+                  <button id='article-2' draggable='true'>article 2</button>
+                  <button id='article-3' draggable='true'>article 3</button>
+                  <button id='article-4' draggable='true'>article 4</button>
+                  <button id='article-5' draggable='true'>article 5</button>
+                  <button id='article-6' draggable='true'>article 6</button>
+                </div>
+              </div>
+
+            </div><!-- end of .aside-inner -->
+          </aside>
+          </div><!-- end of .row -->
           <section class='info-area'>
             <div class='panel panel-info'>
               <div class='panel-heading'>
