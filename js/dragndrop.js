@@ -73,12 +73,8 @@ $(function(){
 
 	$('#target').siblings().remove();
 
-	tree.addNode($('hub-1'), $('#target'));
-	tree.addNode($('hub-2'), $('#target'));
-
-	$(".tree a").on("dragover",function(e){
-		e.preventDefault();
-	});
+	tree.addNode($('#hub-1'), $('#target'));
+	tree.addNode($('#hub-2'), $('#target'));
 
 	// Once drag starts, set the data.
 	$(".hub, .article").on("dragstart",function(e){
@@ -86,8 +82,11 @@ $(function(){
 		e.originalEvent.dataTransfer.setData("text",e.target.id);
 	});
 
-	var copyId = 1;
-	$(".tree a").on("drop",function(e){
+	$(".tree").on("dragover", "a",function(e){
+		e.preventDefault();
+	});
+
+	$(".tree").on("drop", "a", function(e){ // Delegated
 		e.preventDefault();
 		// Get the id of the draggable element, must have an id
 		var droppedId=e.originalEvent.dataTransfer.getData("text");
