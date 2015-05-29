@@ -21,12 +21,13 @@ function renderSaveData(data){
 	}
 }
 
-// TODO: Have save button display the current layout of hubs in the info area.
-// TODO: Only allow lower tiers to be filled first.
-// TODO: Change display to allow higher drop tiers to contain multiple tier targets based on the areas below them.
+// TODO: Have save button display the current layout of hubs in the info area. [Done]
+// TODO: Only allow lower tiers to be filled first. [Done]
+// TODO: Change display to allow higher drop tiers to contain multiple tier targets based on the areas below them. [Done]
+// TODO: Leave a drop target area in each subhub area [Wontfix]
 // TODO: Allow dropping of articles onto the target button and hubs onto the target button as a special case, which causes them to be displayed in tier 1.
-// TODO: Leave a drop target area in each subhub area
 // TODO: Allow hubs within tiers to be dragged to a new order.
+// TODO: Allow hubs to be removed.
 
 /**
  * The renderer is passed to the tree structure to render when nodes are added or dropped.
@@ -100,9 +101,16 @@ $(function(){
 		var droppedId=e.originalEvent.dataTransfer.getData("text");
 		console.log('data', droppedId, 'target', e.target);
 		console.log('landing-pad\'s id:', $(this).attr('id'));
-		// If it's type hub, then add it to the tree.
-		tree.addNode($('#'+droppedId), $(this));
-		// If it's type article, then make it the article of the node.
+		$target = $(this);
+		$dropped = $('#'+droppedId);
+		console.log('Dropped has class is: '+$dropped.hasClass('hub'));
+		if($dropped.hasClass('hub')){
+			// If it's type hub, then add it to the tree.
+			tree.addNode($dropped, $target);
+		} else {
+			// TODO: If it's type article, then make it the article of the node.
+			return false;
+		}
 	});
 
 
