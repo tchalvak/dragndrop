@@ -1,9 +1,9 @@
 // Take the hubs in each tier and capture their data and save them.
-function saveHubs(tree){
+function saveHubs(json_data){
 	// Eventually, this will push to the REST api, but for now, we'll just output the data.
 
 	// Turn tree into json.
-	return tree.toJson();
+	return json_data;
 }
 
 // A quick and dirty function to render the save data
@@ -13,7 +13,7 @@ function renderSaveData(data){
 		var $list = $('<ul></ul>');
 		$(data).each(function(index, el){
 			console.log(el);
-			$list.append($('<li></li>').text('Dropped id: ['+el.hubId+'] Parent-id: ['+el.parent+']'));
+			$list.append($('<li></li>').text('Dropped id: ['+el.node+'] Parent-id: ['+el.parent+']'));
 		});
 		$('#just-info').empty().append($list);
 	} else {
@@ -33,7 +33,20 @@ function renderSaveData(data){
  * It will add li a elements to the tree
  */
 var renderer = renderer || {};
-renderer.addNode = function(){
+renderer.addNode = function(nodecounter, node, parent){
+	var text = node.text() || 'notext';
+
+	// Take the text of the dropped node, and put it into a new structure in layout tree
+	var parentHasSiblings = parent.next('ul').length;
+	parent.end();
+	var newNode = $('<li><a id="node-'+nodecounter+'" href="#">'+text+'</a></li>');
+	if(!parentHasSiblings){
+		var ul = $('<ul>').append(newNode); // Wrap the li in a ul
+		parent.after(ul); // Add it after the parent.
+	} else {
+		// Add node to existing ul
+		parent.next('ul').append(newNode);
+	}
 };
 
 /**
@@ -43,26 +56,21 @@ renderer.addNode = function(){
 var tree = {};
 tree.nodes = [];
 tree.nodeId = 1;
+tree.renderer = renderer;
 // Render nodes as json with type, id, and parent
 tree.toJson = function(){
-	return {hubId:5,parent:7};
+	return tree.nodes;
+};
+tree.nodeData = function(node, parent){
+	var n = {'parent':parent.attr('id'), 'node':node.attr('id')};
+	tree.nodes.push(n);
 };
 tree.addNode = function(node, parent){
-	// Add the node data to the json list.
-	// Add the node to the display as well.
-	var text = node.text() || 'notext';
 	var newNodeId = tree.nodeId++;
-	// Take the text of the dropped node, and put it into a new structure in layout tree
-	var parentHasSiblings = parent.next('ul').length;
-	parent.end();
-	var newNode = $('<li><a id="node-'+newNodeId+'" href="#">'+text+'</a></li>');
-	if(!parentHasSiblings){
-		var ul = $('<ul>').append(newNode); // Wrap the li in a ul
-		parent.after(ul); // Add it after the parent.
-	} else {
-		// Add node to existing ul
-		parent.next('ul').append(newNode);
-	}
+	// Add the node data to the json list.
+	this.nodeData(node, parent);
+	// Add the node to the display as well.
+	tree.renderer.addNode(newNodeId, node, parent);
 };
 tree.removeNode = function(node){
 
@@ -100,7 +108,7 @@ $(function(){
 
 	$('#save-hubs').on('submit, click', function(e){
 		e.preventDefault();
-		var data = saveHubs(tree); // Global tree
+		var data = saveHubs(tree.toJson()); // Global tree
 		renderSaveData(data);
 		return false;
 	});
