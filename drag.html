@@ -51,107 +51,110 @@
       <section class='core'>
         <div class='core-container container-fluid'>
           <div class='row'>
-          <section class='network col-md-9'>
-            <div class='network-inner  panel panel-default'>
-              <div class='panel-heading'>
-                <h1 class='titling panel-title'>Network</h1>
-              </div>
-              <div class='panel-body'>
-                <div class="tree">
-                  <ul>
-                    <li>
-                      <a href="#">Target [example.com/somepage]</a>
-                      <ul>
-                        <li>
-                          <a href="#">Child</a>
-                          <ul>
-                            <li>
-                              <a href="#">Grand Child</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="#">Child</a>
-                          <ul>
-                            <li><a href="#">Grand Child</a></li>
-                            <li>
-                              <a href="#">Grand Child</a>
-                              <ul>
-                                <li>
-                                  <a href="#">Great Grand Child</a>
-                                </li>
-                                <li>
-                                  <a href="#">Great Grand Child</a>
-                                </li>
-                                <li>
-                                  <a href="#">Great Grand Child</a>
-                                </li>
-                              </ul>
-                            </li>
-                            <li><a href="#">Grand Child</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div><!-- end of .tree -->
-              </div><!-- end of .panel-body -->
+            <aside class='col-md-3'>
+              <div class='aside-inner'>
+                <div class='panel panel-default'>
+                  <div class='panel-heading'>
+                    <h2 class='panel-title'>Hubs</h2>
+                  </div>
+                  <div class='hub-area panel-body'>
+                    <button id='hub-1' class='hub' draggable='true'>hub 1</button>
+                    <button id='hub-2' class='hub' draggable='true'>hub 2</button>
+                    <button id='hub-3' class='hub' draggable='true'>hub 3</button>
+                    <button id='hub-4' class='hub' draggable='true'>hub 4</button>
+                    <button id='hub-5' class='hub' draggable='true'>hub 5</button>
+                    <button id='hub-6' class='hub' draggable='true'>hub 6</button>
+                    <button id='hub-7' class='hub' draggable='true'>hub 7</button>
+                    <button id='hub-8' class='hub' draggable='true'>hub 8</button>
+                    <button id='hub-9' class='hub' draggable='true'>hub 9</button>
+                    <button id='hub-10' class='hub' draggable='true'>hub 10</button>
+                  </div>
+                </div>
+                <div class='panel panel-default'>
+                  <div class='panel-heading'>
+                    <h2 class='panel-title'>Articles</h2>
+                  </div>
+                  <div class='articles-area panel-body'>
+                    <button id='article-1' class='article' draggable='true'>article 1</button>
+                    <button id='article-2' class='article' draggable='true'>article 2</button>
+                    <button id='article-3' class='article' draggable='true'>article 3</button>
+                    <button id='article-4' class='article' draggable='true'>article 4</button>
+                    <button id='article-5' class='article' draggable='true'>article 5</button>
+                    <button id='article-6' class='article' draggable='true'>article 6</button>
+                  </div>
+                </div>
 
-              <!--
-              <small>Tier 3</small>
-              <div id='tier-3' class='tier tier-3' title='Tier 3'>
-                
-              </div>
-              <small>Tier 2</small>
-              <div id='tier-2' class='tier tier-2' title='Tier 2'>
-                
-              </div>
-              <small>Tier 1</small>
-              <div id='tier-1' class='tier tier-1' droppable title='Tier 1'>
-                
-              </div>
-              <div class='base-tier'>
-                <button class='target base'>Target<br>[example.com/somepage]</button>
-                <input id='save-hubs' type='submit' value='Save' />
-              </div>
-              -->
-            </div><!-- end of .network-inner -->
-          </section><!-- end of .network -->
-          <aside class='col-md-3'>
-            <div class='aside-inner'>
-              <div class='panel panel-default'>
+              </div><!-- end of .aside-inner -->
+            </aside>
+            <section class='network col-md-9'>
+              <div class='network-inner  panel panel-default'>
                 <div class='panel-heading'>
-                  <h2 class='panel-title'>Hubs</h2>
+                  <h1 class='titling panel-title'>Network</h1>
                 </div>
-                <div class='hub-area panel-body'>
-                  <button id='hub-1' draggable='true'>hub 1</button>
-                  <button id='hub-2' draggable='true'>hub 2</button>
-                  <button id='hub-3' draggable='true'>hub 3</button>
-                  <button id='hub-4' draggable='true'>hub 4</button>
-                  <button id='hub-5' draggable='true'>hub 5</button>
-                  <button id='hub-6' draggable='true'>hub 6</button>
-                  <button id='hub-7' draggable='true'>hub 7</button>
-                  <button id='hub-8' draggable='true'>hub 8</button>
-                  <button id='hub-9' draggable='true'>hub 9</button>
-                  <button id='hub-10' draggable='true'>hub 10</button>
-                </div>
-              </div>
-              <div class='panel panel-default'>
-                <div class='panel-heading'>
-                  <h2 class='panel-title'>Articles</h2>
-                </div>
-                <div class='articles-area panel-body'>
-                  <button id='article-1' draggable='true'>article 1</button>
-                  <button id='article-2' draggable='true'>article 2</button>
-                  <button id='article-3' draggable='true'>article 3</button>
-                  <button id='article-4' draggable='true'>article 4</button>
-                  <button id='article-5' draggable='true'>article 5</button>
-                  <button id='article-6' draggable='true'>article 6</button>
-                </div>
-              </div>
+                <div class='panel-body'>
+                  <div class="tree">
+                    <ul>
+                      <li>
+                        <a id='target' href="#">Target<br>[example.com/somepage]</a>
+                        <ul>
+                          <li>
+                            <a href="#">Child</a>
+                            <ul>
+                              <li>
+                                <a href="#">Grand Child</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li>
+                            <a href="#">Child</a>
+                            <ul>
+                              <li><a href="#">Grand Child</a></li>
+                              <li>
+                                <a href="#">Grand Child</a>
+                                <ul>
+                                  <li>
+                                    <a href="#">Great Grand Child</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Great Grand Child</a>
+                                  </li>
+                                  <li>
+                                    <a href="#">Great Grand Child</a>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><a href="#">Grand Child</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- end of .tree -->
+                </div><!-- end of .panel-body -->
 
-            </div><!-- end of .aside-inner -->
-          </aside>
+                <!--
+                <small>Tier 3</small>
+                <div id='tier-3' class='tier tier-3' title='Tier 3'>
+                  
+                </div>
+                <small>Tier 2</small>
+                <div id='tier-2' class='tier tier-2' title='Tier 2'>
+                  
+                </div>
+                <small>Tier 1</small>
+                <div id='tier-1' class='tier tier-1' droppable title='Tier 1'>
+                  
+                </div>
+                <div class='base-tier'>
+                  <button class='target base'>Target<br>[example.com/somepage]</button>
+                  <input id='save-hubs' type='submit' value='Save' />
+                </div>
+                -->
+                <div class='panel-footer'>
+                  <input id='save-hubs' type='submit' value='Save' />
+                </div>
+              </div><!-- end of .network-inner -->
+            </section><!-- end of .network -->
           </div><!-- end of .row -->
           <section class='info-area'>
             <div class='panel panel-info'>
