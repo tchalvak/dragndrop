@@ -170,8 +170,8 @@ ul.special-info{
 }
 
 .hub{
-  background-color: #d1ec4c;
-  border: 2px #d1ec4c outset;
+  background-color: #337AB7;
+  border: 2px #337AB7 outset;
   padding: 1px 4px;
   color: black;
   text-decoration: none;
@@ -180,6 +180,6 @@ ul.special-info{
 
 .hub:hover{
   border-style: inset;
-  background-color: #e3f48e;
+  background-color: lightblue;
   padding: 2px 3px 0 5px; /*shift text 1px to the right and down*/
 }
