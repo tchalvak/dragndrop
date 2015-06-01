@@ -25,9 +25,10 @@ function renderSaveData(data){
 // TODO: Only allow lower tiers to be filled first. [Done]
 // TODO: Change display to allow higher drop tiers to contain multiple tier targets based on the areas below them. [Done]
 // TODO: Leave a drop target area in each subhub area [Wontfix]
-// TODO: Allow dropping of articles onto the target button and hubs onto the target button as a special case, which causes them to be displayed in tier 1.
+// TODO: Allow dropping of articles onto the target button and hubs onto the target button as a special case, which causes them to be displayed in tier 1. [Hubs done, Articles still TODO]
 // TODO: Allow hubs within tiers to be dragged to a new order.
 // TODO: Allow hubs to be removed.
+// TODO: Prevent tiers from being added beyond the first three.
 
 /**
  * The renderer is passed to the tree structure to render when nodes are added or dropped.
