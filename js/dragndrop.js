@@ -36,6 +36,7 @@ renderer.displayNode = function(nodecounter, node, parent){
 	// Take the text of the dropped node, and put it into a new structure in layout tree
 	var parentHasSiblings = parent.next('ul').length;
 	parent.end();
+	// Todo use a template from the html in order to create and render the new node.
 	var newNode = $('<li><a id="node-'+nodecounter+'" class="node" href="#">'+text+'</a></li>');
 	if(!parentHasSiblings){
 		var ul = $('<ul>').append(newNode); // Wrap the li in a ul
@@ -46,22 +47,46 @@ renderer.displayNode = function(nodecounter, node, parent){
 	}
 };
 // Remove the rendered node area and all subnodes.
-renderer.dedisplayNode = function(node){
-	if('string' === typeof(node) && '#' !== node.charAt(0)){
-		node = '#'+node; // Prepend Id identifier.
+renderer.dedisplayNode = function($node){
+	if(!($node instanceof jQuery)){
+		throw 'Please wrap node in jQuery before manipulation';
 	}
-	$node = $(node);
 	$list = $node.closest('ul');// a -> li -> ul
 	if($list.children().length < 2){
 		$list.remove(); // Remove ul that would be left empty.
 	} else { // There are other li siblings.
 		$node.parent().remove();
 	}
-}
+};
+// Move a node (actually, it's appropriate parentage)
+renderer.shimmyNode = function($node, $landingNode){
+	console.log('Shimmy ['+$node.attr('id')+'] onto ['+$landingNode.attr('id')+'] \'s li.');
+	if($landingNode.next('ul').length){
+		var $newParent = $landingNode.next('ul'); // Add to existing ul.
+	} else { // Create a new ul and add it after the <a>
+		var $newParent = $('<ul>');
+		$landingNode.after($newParent);
+	}
+	if($newParent.length){
+		var $moveMe = $node.closest('li');
+		var $removeMe = null;
+		// Mark parent ul for destruction if it's empty.
+		if($moveMe.siblings('li').length <= 1){
+			$removeMe = $moveMe.parent();
+		}
+		$moveMe.detach();
+		if($removeMe instanceof jQuery){
+			$removeMe.remove();
+		}
+
+		$moveMe.appendTo($newParent);
+		return true;
+	}
+	return false;
+};
 
 /**
  * The tree will store the nodes as a tree structure, and add or remove as needed.
- *
  */
 var tree = {};
 tree.nodes = [];
@@ -112,8 +137,20 @@ tree.removeNode = function($node){
 	// Remove the node record.
 	tree.renderer.dedisplayNode($node);
 	// Remove the rendered node.
-	this.removeNodeData($node);
-
+	return this.removeNodeData($node);
+};
+// Move a node (aka just change it's parent)
+tree.moveNode = function($node, $newParent){
+	var parentId = $newParent.attr('id');
+	if(!parentId){
+		return false;
+	}
+	for(var i = tree.nodes.length; i--;) {
+		if(tree.nodes[i].node === $node.attr('id')) {
+			tree.nodes[i].parent = parentId;
+		}
+	}
+	tree.renderer.shimmyNode($node, $newParent);
 };
 
 
@@ -157,8 +194,12 @@ $(function(){
 			return false; // Dropped on self, do nothing.
 		}
 		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
-			// If it's type hub, then add it to the tree.
-			moved = tree.addNode($dropped, $target);
+			if($dropped.hasClass('node')){
+				tree.moveNode($dropped, $target); // Just move it.
+			} else {
+				// If it's type hub, then add it to the tree.
+				tree.addNode($dropped, $target);
+			}
 		} else {
 			// TODO: If it's type article, then make it the article of the node.
 			return false;
