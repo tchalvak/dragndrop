@@ -65,6 +65,7 @@ tree.addNode = function(node, parent){
 	// Add the node to the display as well.
 	tree.renderer.addNode(newNodeId, node, parent);
 };
+// Pull a node to the trash and derender it's display area.
 tree.removeNode = function(node){
 
 };

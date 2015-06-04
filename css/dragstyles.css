@@ -165,6 +165,11 @@ ul.special-info{
 .dragndrop footer h3{
   color:ghostwhite;
 }
+.interface-button{
+  min-height:4em;min-width:4em;
+}
 #save-hubs{
-  height:3em;width:4em;
+}
+#remove{
+  border:thin dashed crimson;color:crimson;
 }
