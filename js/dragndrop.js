@@ -27,7 +27,10 @@ function renderSaveData(data){
  */
 var renderer = renderer || {};
 // Take a node, add it to it's parent, and give it a unique identifier
-renderer.addNode = function(nodecounter, node, parent){
+renderer.displayNode = function(nodecounter, node, parent){
+	if(!(parent instanceof jQuery)){
+		throw 'Tried to drop a hub in a place that isn\'t droppable, sorry.';
+	}
 	var text = node.text() || 'notext';
 
 	// Take the text of the dropped node, and put it into a new structure in layout tree
@@ -43,7 +46,7 @@ renderer.addNode = function(nodecounter, node, parent){
 	}
 };
 // Remove the rendered node area and all subnodes.
-renderer.removeNode = function(node){
+renderer.dedisplayNode = function(node){
 	if('string' === typeof(node) && '#' !== node.charAt(0)){
 		node = '#'+node; // Prepend Id identifier.
 	}
@@ -87,10 +90,19 @@ tree.removeNodeData = function($node){
 // Pop a node into the tree and set it's parent.
 tree.addNode = function(node, parent){
 	var newNodeId = tree.nodeId++;
+	var success = false;
 	// Add the node data to the json list.
-	this.pushNodeData(node, parent);
-	// Add the node to the display as well.
-	tree.renderer.addNode(newNodeId, node, parent);
+	try{
+		this.pushNodeData(node, parent);
+		success = true;
+	} catch(e){
+		success = false;
+	}
+	if(success){
+		// Add the node to the display as well.
+		tree.renderer.displayNode(newNodeId, node, parent);
+	}
+	return success;
 };
 // Pull a node to the trash and derender it's display area.
 tree.removeNode = function($node){
@@ -98,7 +110,7 @@ tree.removeNode = function($node){
 		throw 'Tree hub not in correct format';
 	}
 	// Remove the node record.
-	tree.renderer.removeNode($node);
+	tree.renderer.dedisplayNode($node);
 	// Remove the rendered node.
 	this.removeNodeData($node);
 
@@ -140,14 +152,18 @@ $(function(){
 		$target = $(this);
 		$dropped = $('#'+droppedId);
 		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
+		var moved = false;
+		if($target[0] === $dropped[0]){
+			return false; // Dropped on self, do nothing.
+		}
 		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
 			// If it's type hub, then add it to the tree.
-			tree.addNode($dropped, $target);
+			moved = tree.addNode($dropped, $target);
 		} else {
 			// TODO: If it's type article, then make it the article of the node.
 			return false;
 		}
-		if($dropped.hasClass('node')){
+		if($dropped.hasClass('node') && moved){ // Remove only on successful drop
 			tree.removeNode($dropped);
 		}
 	});
