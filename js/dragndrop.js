@@ -134,12 +134,15 @@ $(function(){
 		$target = $(this);
 		$dropped = $('#'+droppedId);
 		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
-		if($dropped.hasClass('hub')){
+		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
 			// If it's type hub, then add it to the tree.
 			tree.addNode($dropped, $target);
 		} else {
 			// TODO: If it's type article, then make it the article of the node.
 			return false;
+		}
+		if($dropped.hasClass('node')){
+			tree.removeNode($dropped);
 		}
 	});
 
