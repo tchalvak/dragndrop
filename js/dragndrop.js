@@ -47,7 +47,13 @@ renderer.removeNode = function(node){
 	if('string' === typeof(node) && '#' !== node.charAt(0)){
 		node = '#'+node; // Prepend Id identifier.
 	}
-	$(node).parent().remove();
+	$node = $(node);
+	$list = $node.closest('ul');// a -> li -> ul
+	if($list.children().length < 2){
+		$list.remove(); // Remove ul that would be left empty.
+	} else { // There are other li siblings.
+		$node.parent().remove();
+	}
 }
 
 /**

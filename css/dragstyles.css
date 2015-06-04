@@ -100,11 +100,6 @@ right connector from last child*/
   border-left: 1px solid #ccc;
   width: 0; height: 20px;
 }
-/* Removed nodes can leave a ul, but it won't be shown */
-.tree ul ul:empty::before{
-  border:none;
-  width:0;height:0;
-}
 
 .tree li a{
   border: 1px solid #ccc;
