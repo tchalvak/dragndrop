@@ -193,6 +193,14 @@ $(function(){
 		if($target[0] === $dropped[0]){
 			return false; // Dropped on self, do nothing.
 		}
+		if(($tier = $target.parent().parent('ul')) 
+			&& ($tier2 = $tier.parent().parent('ul')) 
+			&& ($tier3 = $tier2.parent().parent('ul'))
+			&& ($tier4 = $tier3.parent().parent('ul'))
+		 	&& $tier4.length){
+			console.log('Trying to drop on a tier3, rejecting');
+			return false; // Don't add on to a tier3 target.
+		}
 		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
 			if($dropped.hasClass('node')){
 				tree.moveNode($dropped, $target); // Just move it.
