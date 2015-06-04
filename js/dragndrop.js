@@ -101,8 +101,6 @@ tree.removeNode = function($node){
 
 $(function(){
 
-	$('#target').siblings().remove();
-
 	//tree.addNode($('#hub-1'), $('#target'));
 	//tree.addNode($('#hub-2'), $('#target'));
 	//tree.addNode($('#hub-3'), $('#target'));
@@ -133,11 +131,9 @@ $(function(){
 		e.preventDefault();
 		// Get the id of the draggable element, must have an id
 		var droppedId=e.originalEvent.dataTransfer.getData("text");
-		console.log('data', droppedId, 'target', e.target);
-		console.log('landing-pad\'s id:', $(this).attr('id'));
 		$target = $(this);
 		$dropped = $('#'+droppedId);
-		console.log('Dropped has class is: '+$dropped.hasClass('hub'));
+		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
 		if($dropped.hasClass('hub')){
 			// If it's type hub, then add it to the tree.
 			tree.addNode($dropped, $target);

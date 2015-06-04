@@ -142,11 +142,15 @@ right connector from last child*/
 .network-inner small{
   color:lightgray;
 }
-.base-tier{
-  text-align:center;
+.network #target{
+  max-width:10em;
 }
-.base-tier .target{
-  min-height:5.5em;min-width:12em;text-align:center;
+.network #target .url{
+  max-width:8em;
+  display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .titling{
   margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
