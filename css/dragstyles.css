@@ -30,6 +30,9 @@ body{
 
 /* Tree info from here: http://thecodeplayer.com/walkthrough/css3-family-tree */
 .tree * {margin: 0; padding: 0;}
+.tree {
+  min-height:450px;
+}
 
 .tree ul {
   padding-top: 20px; position: relative;
@@ -129,13 +132,8 @@ right connector from last child*/
   border-color:  #94a0b4;
 }
 
+/* =========== End of tree styling ============= */
 
-.tier{
-  min-height:8em;border-radius:0.4em;margin-bottom:3em;padding:1em 0.3em 1em;
-}
-.tier[droppable]{
-  border:thin dashed #333;
-}
 .network-inner small{
   color:lightgray;
 }
@@ -150,6 +148,9 @@ right connector from last child*/
 }
 .hub-area .hub{
   display:inline-block;width:5em;height:5em;margin-right:1em;margin-bottom:1em;
+}
+.hub, .node{
+  background: #808080 url('/img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
 }
 ul.special-info{
   display:inline-block;margin-left:auto;margin-right:auto;
@@ -171,5 +172,5 @@ ul.special-info{
 #save-hubs{
 }
 #remove{
-  border:thin dashed crimson;color:crimson;
+  border:thin dashed crimson;color:crimson;border-radius:0.3em;
 }
