@@ -103,17 +103,18 @@ $(function(){
 
 	$('#target').siblings().remove();
 
-	tree.addNode($('#hub-1'), $('#target'));
-	tree.addNode($('#hub-2'), $('#target'));
-	tree.addNode($('#hub-3'), $('#target'));
+	//tree.addNode($('#hub-1'), $('#target'));
+	//tree.addNode($('#hub-2'), $('#target'));
+	//tree.addNode($('#hub-3'), $('#target'));
 
 	// Once drag starts, set the data.
-	$(".hub, .article, .node").on("dragstart",function(e){
+	$(".hub, .article").on("dragstart",function(e){
 		console.log('Element picked up, id: ['+e.target.id+']');
 		// Set the hubId for transferring.
 		e.originalEvent.dataTransfer.setData("text",e.target.id);
 	});
-	$('.node').on('dragstart', function(e){ // Separated because the link target is overriding
+	// Delegated node event checking.
+	$('.tree').on('dragstart', '.node', function(e){ // Separated because the link target is overriding
 		console.log('Node picked up, id: ['+this.id+']');
 		// Set the hubId for transferring.
 		e.originalEvent.dataTransfer.setData("text",this.id);
