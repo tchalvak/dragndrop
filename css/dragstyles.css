@@ -1,6 +1,6 @@
 /* Background patterns from subtlepatterns.com */
 body{
-  background: url('/img/backgrounds/exclusive_paper.png');
+  background: url('../img/backgrounds/exclusive_paper.png');
 }
 
 .dragndrop header{
@@ -19,7 +19,7 @@ body{
   width:100%;vertical-align:top;
 }
 .dragndrop aside{
-  background:gray url('/img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
+  background:gray url('../img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
 }
 .dragndrop .network{
   background-color:ghostwhite;border-radius:0.3em;
@@ -154,7 +154,7 @@ right connector from last child*/
   display:inline-block;width:5em;height:5em;margin-right:1em;margin-bottom:1em;
 }
 .hub, .node{
-  background: #808080 url('/img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
+  background: #808080 url('../img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
   width:5em;
   word-wrap:break-word;
   overflow-wrap:break-word;
@@ -163,11 +163,11 @@ ul.special-info{
   display:inline-block;margin-left:auto;margin-right:auto;
 }
 .dragndrop .info-area{
-  color:#363636; background: ghostwhite url('/img/backgrounds/paisley.png'); margin-top:3em;
+  color:#363636; background: ghostwhite url('../img/backgrounds/paisley.png'); margin-top:3em;
 }
 .dragndrop footer{
   color:ghostwhite;
-  background: #333 url('/img/backgrounds/congruent_outline.png');
+  background: #333 url('../img/backgrounds/congruent_outline.png');
   min-height:5em;width:100%;margin-top:2em;padding-top:1.5em;padding-bottom:1.5em;
 }
 .dragndrop footer h3{
