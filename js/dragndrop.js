@@ -187,7 +187,7 @@ $(function(){
 		// Get the id of the draggable element, must have an id
 		var droppedId=e.originalEvent.dataTransfer.getData("text");
 		$target = $(this);
-		$dropped = $('#'+droppedId);
+		$dropped = $(document.getElementById(droppedId));
 		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
 		var moved = false;
 		if($target[0] === $dropped[0]){
@@ -197,8 +197,8 @@ $(function(){
 			&& ($tier2 = $tier.parent().parent('ul')) 
 			&& ($tier3 = $tier2.parent().parent('ul'))
 			&& ($tier4 = $tier3.parent().parent('ul'))
-		 	&& $tier4.length){
-			console.log('Trying to drop on a tier3, rejecting');
+			&& $tier4.length){
+			console.log('Trying to drop onto too low of a tier, rejecting');
 			return false; // Don't add on to a tier3 target.
 		}
 		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
@@ -222,7 +222,7 @@ $(function(){
 		e.preventDefault();
 		var droppedId = e.originalEvent.dataTransfer.getData("text");
 		console.log('Remove requested for id: '+droppedId);
-		$dropped = $('#'+droppedId);
+		$dropped = $(document.getElementById(droppedId));
 		if(!($dropped.length)){
 			throw 'Dropped element not found!';
 		}
