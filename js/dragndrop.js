@@ -107,7 +107,6 @@ tree.pushNodeData = function(node, parent){
 };
 // Traverse the tree and remove the first match.
 tree.removeNodeData = function($node){
-	tree.nodes
 	for(var i = tree.nodes.length; i--;) {
 		if(tree.nodes[i].node === $node.attr('id')) {
 		  tree.nodes.splice(i, 1); // Remove match.
