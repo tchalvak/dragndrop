@@ -71,7 +71,7 @@ renderer.shimmyNode = function($node, $landingNode){
 		var $moveMe = $node.closest('li');
 		var $removeMe = null;
 		// Mark parent ul for destruction if it's empty.
-		if($moveMe.siblings('li').length <= 1){
+		if($moveMe.siblings('li').length === 0){
 			$removeMe = $moveMe.parent();
 		}
 		$moveMe.detach();
