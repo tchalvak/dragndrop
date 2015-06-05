@@ -152,6 +152,26 @@ tree.moveNode = function($node, $newParent){
 	}
 	tree.renderer.shimmyNode($node, $newParent);
 };
+// Check whether a target and dropped move is acceptable
+tree.isAcceptableMove = function($node, $landsOn){
+	// Can't drop onto your own descendant
+	if($.contains($node, $landsOn)){
+		return false;
+	} else if($node[0] === $landsOn[0]){ // Can't drop on yourself.
+		return false;
+	} else if($node.parent().parent()[0] === $landsOn[0]){ // Ignore drop on already-parent element
+		return false;
+	} else if(($tier = $target.parent().parent('ul')) 
+			&& ($tier2 = $tier.parent().parent('ul')) 
+			&& ($tier3 = $tier2.parent().parent('ul'))
+			&& ($tier4 = $tier3.parent().parent('ul'))
+			&& $tier4.length){
+		console.log('Trying to drop onto too low of a tier, rejecting');
+		return false; // Can'd drop below the 3rd tier.
+	} else {
+		return true;
+	}
+};
 
 
 $(function(){
@@ -190,16 +210,9 @@ $(function(){
 		$dropped = $(document.getElementById(droppedId));
 		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
 		var moved = false;
-		if($target[0] === $dropped[0]){
-			return false; // Dropped on self, do nothing.
-		}
-		if(($tier = $target.parent().parent('ul')) 
-			&& ($tier2 = $tier.parent().parent('ul')) 
-			&& ($tier3 = $tier2.parent().parent('ul'))
-			&& ($tier4 = $tier3.parent().parent('ul'))
-			&& $tier4.length){
-			console.log('Trying to drop onto too low of a tier, rejecting');
-			return false; // Don't add on to a tier3 target.
+		var valid = tree.isAcceptableMove($dropped, $target);
+		if(!valid){
+			return false;
 		}
 		if($dropped.hasClass('hub') || $dropped.hasClass('node')){
 			if($dropped.hasClass('node')){
