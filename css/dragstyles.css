@@ -151,13 +151,13 @@ right connector from last child*/
   margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
 }
 .hub-area .hub{
-  display:inline-block;width:5em;height:5em;margin-right:1em;margin-bottom:1em;word-wrap: break-word;
+  display:inline-block;width:5em;height:5em;margin-right:1em;margin-bottom:1em;
 }
 .hub, .node{
   background: #808080 url('/img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
   width:5em;
-  white-space: nowrap;
-  overflow: hidden;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
 }
 ul.special-info{
   display:inline-block;margin-left:auto;margin-right:auto;
