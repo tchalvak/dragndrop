@@ -155,6 +155,9 @@ right connector from last child*/
 }
 .hub, .node{
   background: #808080 url('/img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
+  width:5em;
+  white-space: nowrap;
+  overflow: hidden;
 }
 ul.special-info{
   display:inline-block;margin-left:auto;margin-right:auto;
