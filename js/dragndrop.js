@@ -13,7 +13,7 @@ function renderSaveData(data){
 		var $list = $('<ul></ul>');
 		$(data).each(function(index, el){
 			console.log(el);
-			$list.append($('<li></li>').text('Dropped id: ['+el.node+'] Parent-id: ['+el.parent+']'));
+			$list.append($('<li></li>').text('Dropped id: ['+el.node+'] Parent-id: ['+el.parent+'] Article-id: ['+el.article+']'));
 		});
 		$('#just-info').empty().append($list);
 	} else {
@@ -84,6 +84,10 @@ renderer.shimmyNode = function($node, $landingNode){
 	}
 	return false;
 };
+// Just drop the article name into the area, for now.  Better rendering to come.
+renderer.markArticle = function($node, $article){
+	$node.text('['+$article.text()+'] '+$node.text()); // Fake way of adding an article.
+};
 
 /**
  * The tree will store the nodes as a tree structure, and add or remove as needed.
@@ -98,7 +102,7 @@ tree.toJson = function(){
 };
 // Push a node's info onto the data array
 tree.pushNodeData = function(node, parent){
-	var n = {'parent':parent.attr('id'), 'node':node.attr('id')};
+	var n = {'parent':parent.attr('id'), 'node':node.attr('id'), 'article':null};
 	tree.nodes.push(n);
 };
 // Traverse the tree and remove the first match.
@@ -175,6 +179,17 @@ tree.isAcceptableMove = function($node, $landsOn){
 		return true;
 	}
 };
+// Add a certain article to a node.
+tree.associateArticle = function($node, $article){
+	this.renderer.markArticle($node, $article);
+	for(var i = tree.nodes.length; i--;) {
+		if(tree.nodes[i].node === $node.attr('id')) {
+			tree.nodes[i].article = $article.attr('id');
+			return true;
+		}
+	}
+	return false;
+};
 
 
 $(function(){
@@ -212,6 +227,9 @@ $(function(){
 		$target = $(this);
 		$dropped = $(document.getElementById(droppedId));
 		console.log('Just dropped id: ['+droppedId+'] onto: ['+$target.attr('id')+']');
+		if($dropped.hasClass('article') && !$target.hasClass('target')){
+			return tree.associateArticle($target, $dropped);
+		}
 		var moved = false;
 		var valid = tree.isAcceptableMove($dropped, $target);
 		if(!valid){
@@ -225,8 +243,8 @@ $(function(){
 				tree.addNode($dropped, $target);
 			}
 		} else {
-			// TODO: If it's type article, then make it the article of the node.
-			return false;
+			throw 'Problem determining the type of the dropped info.';
+			// Not article, not hub, not node, so what is it?
 		}
 		if($dropped.hasClass('node') && moved){ // Remove only on successful drop
 			tree.removeNode($dropped);
