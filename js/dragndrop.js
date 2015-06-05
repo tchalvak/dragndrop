@@ -156,10 +156,13 @@ tree.moveNode = function($node, $newParent){
 tree.isAcceptableMove = function($node, $landsOn){
 	// Can't drop onto your own descendant
 	if($.contains($node, $landsOn)){
+		console.log('Ignoring drop on own descendant.');
 		return false;
 	} else if($node[0] === $landsOn[0]){ // Can't drop on yourself.
+		console.log('Ignore dropping on yourself.');
 		return false;
 	} else if($node.parent().parent()[0] === $landsOn[0]){ // Ignore drop on already-parent element
+		console.log('Ignoring drop on already-parent element.');
 		return false;
 	} else if(($tier = $target.parent().parent('ul')) 
 			&& ($tier2 = $tier.parent().parent('ul')) 
