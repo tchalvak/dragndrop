@@ -1,7 +1,10 @@
 # dragndrop
 Simple drag N drop prototype.
 
-Url to view it is here: http://tchalvak.github.io/dragndrop/drag.html
+Live Url to view it is here: http://tchalvak.github.io/dragndrop/drag.html
+
+It uses a nice css-only tree structure to display the elements after they're dragged.
+Uses bootstrap.css, and subtle patterns (ok, some not too subtle) during the prototyping stage.
 
 
 https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Drag_and_drop 
