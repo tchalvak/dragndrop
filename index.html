@@ -11,15 +11,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-<style>
-a.go-to-prototype{
-  padding:2em;display:block;
-}
-a.go-to-prototype button{
-  min-height:10em;min-width:10em;font-size:larger;
-}
-</style>
   </head>
   <body>
     <div class="wrapper">
@@ -31,40 +22,45 @@ a.go-to-prototype button{
 
 
         <ul>
+          <!-- Apparently github changed it's zip/download/whatever releases policy 
+
           <li><a href="https://github.com/tchalvak/dragndrop/zipball/master">Download <strong>ZIP File</strong></a></li>
           <li><a href="https://github.com/tchalvak/dragndrop/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          -->
           <li><a href="https://github.com/tchalvak/dragndrop">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h3>
-<a id="simple-drag-n-drop-prototype" class="anchor" href="#simple-drag-n-drop-prototype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Drag 'N Drop Prototype</h3>
+        <a id="simple-drag-n-drop-prototype" class="anchor" href="#simple-drag-n-drop-prototype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Drag 'N Drop Prototype</h3>
 
-<a class='go-to-prototype' href='drag.html'><button>View Main Prototype Page</button></a>
+        <a class='go-to-prototype' href='drag.html'><button>View Main Prototype Page</button></a>
 
-<p>Designed to use the html5 API to drag or move elements from the uh, repository of hubs/buttons to their proper locations.</p>
+        <p>Designed to use the html5 API to drag or move elements from the uh, repository of hubs/buttons to their proper locations.</p>
 
-<pre><code>function allowDrop(ev) {
-    ev.preventDefault();
-}
+        <pre><code>function allowDrop(ev) {
+            ev.preventDefault();
+        }
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
 
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
-</code></pre>
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+        </code></pre>
 
-<p>Just some example dirty code off the net.</p>
+        <p>Just some example dirty code off the net.</p>
 
-<h3>
-<a id="full-page-design" class="anchor" href="#full-page-design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Full page design</h3>
+        <h3>
+          <a id="full-page-design" class="anchor" href="#full-page-design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Full page design
+        </h3>
 
-<p>Obviously, this system will be visually non-slick while in the prototyping stage.</p>
+        <p>Obviously, this system will be visually non-slick while in the prototyping stage.</p>
+
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/tchalvak">tchalvak</a></p>

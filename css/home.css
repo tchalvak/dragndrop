@@ -183,6 +183,17 @@ footer {
   bottom:50px;
 }
 
+/* Make the got-to-the-prototype button larger */
+a.go-to-prototype{
+  padding:2em;
+  display:block;
+}
+a.go-to-prototype button{
+  min-height:10em;
+  min-width:10em;
+  font-size:larger;
+}
+
 @media print, screen and (max-width: 960px) {
   
   div.wrapper {
