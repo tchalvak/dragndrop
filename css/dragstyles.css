@@ -4,11 +4,17 @@ body{
 }
 
 .dragndrop header{
-  width:100%; background: #f59ff5;padding:0 1em 0;margin-top:1em;margin-bottom:4em;
+  width:100%; 
+  background: #f59ff5;
+  padding:0 1em 0;
+  margin-top:1em;
+  margin-bottom:4em;
 }
 .dragndrop header .view a{
-  background-color:ghostwhite;background-color:rgba(200, 200, 200, 0.9);
-  display:inline-block;padding:0 1em;
+  background-color:ghostwhite;
+  background-color:rgba(200, 200, 200, 0.9);
+  display:inline-block;
+  padding:0 1em;
 }
 .dragndrop header h1{
   margin:0;
@@ -19,10 +25,13 @@ body{
   width:100%;vertical-align:top;
 }
 .dragndrop aside{
-  background:gray url('../img/backgrounds/swirl_pattern.png'); border-radius:0.3em; vertical-align:top;
+  background:gray url('../img/backgrounds/swirl_pattern.png');
+  border-radius:0.3em;
+  vertical-align:top;
 }
 .dragndrop .network{
-  background-color:ghostwhite;border-radius:0.3em;
+  background-color:ghostwhite;
+  border-radius:0.3em;
 }
 .dragndrop .aside-inner{
   padding:0.4em;
@@ -36,7 +45,6 @@ body{
 
 .tree ul {
   padding-top: 20px; position: relative;
-  
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -47,7 +55,6 @@ body{
   list-style-type: none;
   position: relative;
   padding: 20px 5px 0 5px;
-  
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
@@ -138,7 +145,8 @@ right connector from last child*/
   color:lightgray;
 }
 .network #target{
-  max-width:10em;border:thin solid #A52AB2;
+  max-width:10em;
+  border:thin solid #A52AB2;
 }
 .network #target .url{
   max-width:8em;
@@ -148,36 +156,56 @@ right connector from last child*/
   text-overflow: ellipsis;
 }
 .titling{
-  margin-left:auto;margin-right:auto;text-align:center;vertical-align:middle;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  vertical-align:middle;
 }
 .hub-area .hub{
-  display:inline-block;width:5em;height:5em;margin-right:1em;margin-bottom:1em;
+  display:inline-block;
+  width:5em;
+  height:5em;
+  margin-right:1em;
+  margin-bottom:1em;
 }
 .hub, .node{
-  background: #808080 url('../img/backgrounds/swirl_pattern.png');font-weight:bolder;color:#333;
+  background: #808080 url('../img/backgrounds/swirl_pattern.png');
+  font-weight:bolder;
+  color:#333;
   width:5em;
   word-wrap:break-word;
   overflow-wrap:break-word;
 }
 ul.special-info{
-  display:inline-block;margin-left:auto;margin-right:auto;
+  display:inline-block;
+  margin-left:auto;
+  margin-right:auto;
 }
 .dragndrop .info-area{
-  color:#363636; background: ghostwhite url('../img/backgrounds/paisley.png'); margin-top:3em;
+  color:#363636;
+  background: ghostwhite url('../img/backgrounds/paisley.png');
+  margin-top:3em;
 }
 .dragndrop footer{
   color:ghostwhite;
   background: #333 url('../img/backgrounds/congruent_outline.png');
-  min-height:5em;width:100%;margin-top:2em;padding-top:1.5em;padding-bottom:1.5em;
+  min-height:5em;
+  width:100%;
+  margin-top:2em;
+  padding-top:1.5em;
+  padding-bottom:1.5em;
 }
 .dragndrop footer h3{
   color:ghostwhite;
 }
 .interface-button{
-  min-height:4em;min-width:4em;
+  min-height:4em;
+  min-width:4em;
 }
 #save-hubs{
 }
 #remove{
-  border:thin dashed crimson;color:crimson;border-radius:0.3em;
+  border:thin dashed crimson;
+  color:crimson;
+  border-radius:0.3em;
 }
