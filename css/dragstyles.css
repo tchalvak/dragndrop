@@ -163,10 +163,14 @@ right connector from last child*/
 }
 .hub-area .hub{
   display:inline-block;
-  width:5em;
+  width:6em;
   height:5em;
   margin-right:1em;
   margin-bottom:1em;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  padding-left:0.2em;
+  padding-right:0.2em;
 }
 .hub, .node{
   background: #808080 url('../img/backgrounds/swirl_pattern.png');
