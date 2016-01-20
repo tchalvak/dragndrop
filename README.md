@@ -23,4 +23,4 @@ http://jnuno.com/tree-model-js/
 
 http://caniuse.com/#search=canvas
 http://raphaeljs.com/
-http://stackoverflow.com/questions/4712189/how-to-draw-a-line-between-2-elements-using-jquery-and-refreshing-that-line
+http://goo.gl/gguRSQ // Line between 2 points on SO
